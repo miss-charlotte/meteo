@@ -4,32 +4,58 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Clima</title>
+    <link
+      rel="preload"
+      href="Mona-Sans.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link rel="stylesheet" href="src/styles.css" />
   </head>
   <body>
     <div class="weather-app">
       <header>
-        <input type="text" placeholder="Enter a city" required />
-        <input type="submit" value="Search" />
-      </header>
-      <main>
-        <div>26</div>
-        <div>
-          <h1>London</h1>
-          <p>10:36 - Tuesday, 11 October, 2024</p>
+        <div class="logo">my.weather.app</div>
+        <div class="form-input">
+          <input
+          type="text"
+          placeholder="Enter a city"
+          class="search-value"
+          required
+        />
+        <input type="submit" value="Search" class="search-button" />
         </div>
+      </header>
 
-        <div>
-          <h5>Weather Details</h5>
-          <p>Clouds</p>
-          <p>Humidity</p>
-          <p>Wind</p>
+      <main>
+        <div class="current-weather">
+          <p class="current-temperature">26°</p>
+          <div class="city-details">
+            <h1 class="current-city">London</h1>
+            <p id="current-date-and-time">10:36 - Tuesday, 11 October, 2024</p>
+          </div>
+
+          <div class="weather-details">
+            <h5>Weather Details</h5>
+            <p class="weather-type">
+              Clouds
+              <span class="real-time-data">scattered</span>
+            </p>
+
+            <p class="weather-type">
+              Humidity
+              <span class="real-time-data">21km/h</span>
+            </p>
+            <p class="weather-type">
+              Wind
+              <span class="real-time-data">21km/h</span>
+            </p>
+          </div>
         </div>
       </main>
       <footer>
-        Coded by
-        <a href="https://github.com/miss-charlotte" target="_blank"
-          >Charlotte Akongo</a
-        >
+       Coded by <a href="https://github.com/miss-charlotte" target="_blank">Charlotte Akongo</a>
         and is open-sourced
         <a href="https://github.com/miss-charlotte/meteo" target="_blank"
           >on GitHub</a
@@ -40,5 +66,6 @@
         >
       </footer>
     </div>
+    <script src="src/index.js"></script>
   </body>
 </html>

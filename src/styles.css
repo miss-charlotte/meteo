@@ -1,0 +1,93 @@
+body {
+  background: #fff;
+  font-family: "Inter";
+}
+
+.weather-app {
+ background: linear-gradient(2.1deg, rgb(116, 253, 210) 5%, rgb(0, 191, 247) 95.8%);
+  max-width: 700px;
+  margin: 50px auto;
+  padding: 30px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.search-value {
+  border-bottom: 1px solid rgba(248, 248, 248, 0.8);
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  font-size: 14px;
+  background: none;
+  width: 300px;
+  font-family: "Inter";
+  color: #fff;
+  padding: 3px 0;
+}
+
+.search-value:focus {
+  outline: none;
+  border-bottom: 2px solid rgba(248, 248, 248, 0.8);
+}
+
+.search-button {
+  border: none;
+  padding: 15px;
+  font-size: 14px;
+  font-family: "Mona Sans";
+  background: #fff;
+}
+
+.current-weather {
+  display: flex;
+  justify-content: space-between;
+}
+
+.current-temperature {
+  font-size: 70px;
+}
+
+.city-details {
+  position: relative;
+  top: 65px;
+  left: -50px;
+}
+
+h1 {
+  font-weight: 400;
+}
+
+.city-details p {
+  font-size: 13px;
+  position: relative;
+  top: -20px;
+}
+
+.weather-details p {
+  font-size: 14px;
+  font-weight: thin;
+}
+
+.weather-type {
+  display: flex;
+  justify-content: space-between;
+}
+
+.real-time-data {
+  margin-left: 40px;
+}
+
+footer {
+  text-align: center;
+  font-size: 14px;
+  font-weight: 400;
+}
