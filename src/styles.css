@@ -1,98 +1,119 @@
 body {
-  background: #fff;
+  background: linear-gradient(
+    109.6deg,
+    rgb(6, 183, 249) 11.2%,
+    rgb(25, 74, 236) 91.1%
+  );
   font-family: "Mona Sans";
 }
 
 .weather-app {
- background: linear-gradient(2.1deg, rgb(116, 253, 210) 5%, rgb(0, 191, 247) 95.8%);
+  background: #fff;
   max-width: 700px;
   margin: 50px auto;
   padding: 30px;
 }
 
 header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .logo {
-    font-size: 12px;
-    font-weight: 700;
+  font-size: 12px;
+  font-weight: 700;
+  color: rgb(26, 86, 251);
 }
 
 .search-value {
-  border-bottom: 1px solid rgba(248, 248, 248, 0.8);
-  border-top: none;
+  border: 1px solid rgb(26, 86, 251);
+  /* border-top: none;
   border-left: none;
-  border-right: none;
+  border-right: none; */
   font-size: 14px;
   background: none;
   width: 300px;
   font-family: "Inter";
-  color: #fff;
-  padding: 3px 0;
+  color: #000;
+  padding: 15px 10px;
+}
+
+.search-value::placeholder {
+  color: #000;
+  opacity: 0.8;
 }
 
 .search-value:focus {
   outline: none;
-  border-bottom: 2px solid rgba(248, 248, 248, 0.8);
+  border: 2px solid rgb(26, 86, 251);
+}
+
+.search-form:focus-visible {
+  outline: none;
   background: none;
 }
 
-
 .search-button {
   border: none;
-  padding: 15px;
+  padding: 16px;
   font-size: 14px;
   font-family: "Mona Sans";
-  background: #fff;
+  color: #fff;
+  background: rgb(26, 86, 251);
+  margin-left: 5px;
 }
 
 .current-weather {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 30px;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
 }
 
 .current-city h1 {
-    font-weight: 400;
+  font-weight: 400;
 }
 
 .current-city p {
-    font-size: 13px;
-    margin-bottom: -15px;
+  font-size: 13px;
+  margin-bottom: -15px;
 }
 
 .weather-details h5 {
-    margin-bottom: -20px;
+  margin-bottom: -20px;
 }
 
 .weather-type {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 35px;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 35px;
 }
 
 .temperature {
-    font-size: 75px;
-    position: relative;
-    top: -20px;
+  font-size: 75px;
+  position: relative;
+  top: -20px;
 }
 
 .temperature-icon {
-    font-size: 90px;
+  font-size: 90px;
 }
 
 .temperature-description {
-    font-size: 14px;
-    font-weight: 500;
-    margin-top: -20px;
+  font-size: 14px;
+  font-weight: 500;
+  margin-top: -20px;
 }
 
 footer {
-    margin-top: 40px;
+  margin-top: 40px;
   text-align: center;
   font-size: 14px;
   font-weight: 400;
+  opacity: 0.7;
+}
+
+footer a {
+  text-decoration: none;
+  color: rgb(26, 86, 251);
 }
