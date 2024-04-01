@@ -1,6 +1,6 @@
 body {
   background: #fff;
-  font-family: "Inter";
+  font-family: "Mona Sans";
 }
 
 .weather-app {
@@ -37,7 +37,9 @@ header {
 .search-value:focus {
   outline: none;
   border-bottom: 2px solid rgba(248, 248, 248, 0.8);
+  background: none;
 }
+
 
 .search-button {
   border: none;
