@@ -19,43 +19,46 @@
         <div class="logo">my.weather.app</div>
         <div class="form-input">
           <input
-          type="text"
-          placeholder="Enter a city"
-          class="search-value"
-          required
-        />
-        <input type="submit" value="Search" class="search-button" />
+            type="text"
+            placeholder="Enter a city"
+            class="search-value"
+            required
+          />
+          <input type="submit" value="Search" class="search-button" />
         </div>
       </header>
 
       <main>
         <div class="current-weather">
-          <p class="current-temperature">26°</p>
-          <div class="city-details">
-            <h1 class="current-city">London</h1>
-            <p id="current-date-and-time">10:36 - Tuesday, 11 October, 2024</p>
+          <div class="current-city">
+            <p id="current-time-and-date">Tuesday, 11 October, 2024 - 10:36</p>
+            <h1 id="current-city-details">London</h1>
+            <div class="weather-details">
+              <h5>Weather Details</h5>
+              <p class="weather-type">Clouds
+                <span class="data">scattered</span>
+              </p>
+              <p class="weather-type">Humidity
+                <span class="data">7.2km/h</span>
+              </p>
+              <p class="weather-type">Winds
+                <span class="data">5.3km/h</span>
+              </p>
+            </div>
           </div>
 
-          <div class="weather-details">
-            <h5>Weather Details</h5>
-            <p class="weather-type">
-              Clouds
-              <span class="real-time-data">scattered</span>
-            </p>
-
-            <p class="weather-type">
-              Humidity
-              <span class="real-time-data">21km/h</span>
-            </p>
-            <p class="weather-type">
-              Wind
-              <span class="real-time-data">21km/h</span>
-            </p>
+          <div class="current-weather-temperature">
+            <div class="temperature">26°</div>
+            <div class="temperature-icon">🌥</div>
+            <div class="temperature-description">Mostly Sunny</div>
           </div>
         </div>
       </main>
       <footer>
-       Coded by <a href="https://github.com/miss-charlotte" target="_blank">Charlotte Akongo</a>
+        Coded by
+        <a href="https://github.com/miss-charlotte" target="_blank"
+          >Charlotte Akongo</a
+        >
         and is open-sourced
         <a href="https://github.com/miss-charlotte/meteo" target="_blank"
           >on GitHub</a

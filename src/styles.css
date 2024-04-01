@@ -48,45 +48,48 @@ header {
 }
 
 .current-weather {
-  display: flex;
-  justify-content: space-between;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
 }
 
-.current-temperature {
-  font-size: 70px;
+.current-city h1 {
+    font-weight: 400;
 }
 
-.city-details {
-  position: relative;
-  top: 65px;
-  left: -50px;
+.current-city p {
+    font-size: 13px;
+    margin-bottom: -15px;
 }
 
-h1 {
-  font-weight: 400;
-}
-
-.city-details p {
-  font-size: 13px;
-  position: relative;
-  top: -20px;
-}
-
-.weather-details p {
-  font-size: 14px;
-  font-weight: thin;
+.weather-details h5 {
+    margin-bottom: -20px;
 }
 
 .weather-type {
-  display: flex;
-  justify-content: space-between;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 35px;
 }
 
-.real-time-data {
-  margin-left: 40px;
+.temperature {
+    font-size: 75px;
+    position: relative;
+    top: -20px;
+}
+
+.temperature-icon {
+    font-size: 90px;
+}
+
+.temperature-description {
+    font-size: 14px;
+    font-weight: 500;
+    margin-top: -20px;
 }
 
 footer {
+    margin-top: 40px;
   text-align: center;
   font-size: 14px;
   font-weight: 400;
