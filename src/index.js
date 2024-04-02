@@ -2,9 +2,23 @@ function updateWeather(response) {
   let temperatureElement = document.querySelector("#current-temperature");
   temperature = response.data.main.temp;
   let cityElement = document.querySelector("#current-city-details");
-  console.log(response.data.name)
   cityElement.innerHTML = response.data.name;
   temperatureElement.innerHTML = Math.round(temperature);
+
+  let humidityElement = document.querySelector("#humidity-data");
+  humidityElement.innerHTML = `${response.data.main.humidity}%`;
+
+  let windElement = document.querySelector("#wind-data");
+  windElement.innerHTML = `${response.data.wind.speed}km/h`;
+
+  let rainElement = document.querySelector("#rain-data");
+  rainElement.innerHTML = response.data.weather[0].description;
+
+  let timeElement = document.querySelector("#current-date");
+  let date = formatDate(date);
+  timeElement.innerHTML = `${date.getHours()}: ${date.getMinutes()}`;
+
+  console.log(response.data)
 }
 
 function searchCity(city) {
@@ -63,7 +77,7 @@ function formatDate(date) {
     hour = `0${hour}`;
   }
 
-  let formattedDay = days[day];
+  let formattedDay = days[date.getDay()];
   let formattedMonth = months[month];
 
   return `${formattedDay}, ${dateDay} ${formattedMonth}, ${year}  - ${hour}:${minutes}`;
@@ -74,4 +88,4 @@ let currentDate = new Date();
 
 currentDateELement.innerHTML = formatDate(currentDate);
 
-searchCity("Kampala")
+searchCity("Kampala");
