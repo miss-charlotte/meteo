@@ -1,14 +1,10 @@
 body {
-  background: linear-gradient(
-    109.6deg,
-    rgb(6, 183, 249) 11.2%,
-    rgb(25, 74, 236) 91.1%
-  );
+  background: #fff;
   font-family: "Mona Sans";
 }
 
 .weather-app {
-  background: #fff;
+  background: radial-gradient(circle at 10% 20%, rgba(234, 249, 249, 0.67) 0.1%, rgba(9, 213, 240, 0.63) 90.1%);
   max-width: 700px;
   margin: 50px auto;
   padding: 30px;
@@ -109,9 +105,7 @@ header {
   margin: 0 auto;
 }
 
-.temperature-description {
-  font-size: 14px;
-  font-weight: 500;
+.temperature-description img{
   margin-top: -20px;
 }
 

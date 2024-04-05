@@ -12,13 +12,25 @@ function updateWeather(response) {
   windElement.innerHTML = `${response.data.wind.speed}km/h`;
 
   let rainElement = document.querySelector("#rain-data");
-  rainElement.innerHTML = response.data.weather[0].description;
+  rainElement.innerHTML = response.data.weather[0].main;
+  console.log(response.data);
+  console.log(response.data.coord.dt);
 
   let timeElement = document.querySelector("#current-date");
-  let date = formatDate(date);
-  timeElement.innerHTML = `${date.getHours()}: ${date.getMinutes()}`;
+  let timeStamp = response.data.dt;
+  let date = new Date(timeStamp* 1000);
+  timeElement.innerHTML = formatDate(date);
 
-  console.log(response.data)
+  let iconElement = document.querySelector("#temperature-icon");
+  let iconCode = response.data.weather[0].icon;
+  let imgElement = document.createElement("img");
+  imgElement.src = "https://openweathermap.org/img/wn/" + iconCode + "@2x.png";
+  iconElement.innerHTML = ""; 
+  iconElement.appendChild(imgElement);
+
+  let descriptionElement = document.querySelector("#temperature-description");
+  descriptionElement.innerHTML = response.data.weather[0].description;;
+
 }
 
 function searchCity(city) {
@@ -38,7 +50,6 @@ let searchFormElement = document.querySelector("#search-form");
 searchFormElement.addEventListener("submit", handleSubmit);
 
 function formatDate(date) {
-  let day = date.getDay();
   let dateDay = date.getDate();
   let month = date.getMonth();
   let year = date.getFullYear();
@@ -46,13 +57,13 @@ function formatDate(date) {
   let minutes = date.getMinutes();
 
   let days = [
+    "Sunday",
     "Monday",
     "Tuesday",
     "Wednesday",
     "Thursday",
     "Friday",
     "Saturday",
-    "Sunday",
   ];
 
   let months = [
@@ -65,6 +76,7 @@ function formatDate(date) {
     "July",
     "August",
     "September",
+    "October",
     "November",
     "December",
   ];
@@ -83,9 +95,9 @@ function formatDate(date) {
   return `${formattedDay}, ${dateDay} ${formattedMonth}, ${year}  - ${hour}:${minutes}`;
 }
 
-let currentDateELement = document.querySelector("#current-date");
-let currentDate = new Date();
+// let currentDateELement = document.querySelector("#current-date");
+// let currentDate = new Date();
 
-currentDateELement.innerHTML = formatDate(currentDate);
+// currentDateELement.innerHTML = formatDate(currentDate);
 
 searchCity("Kampala");
