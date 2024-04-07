@@ -1,9 +1,9 @@
 function updateWeather(response) {
   let temperatureElement = document.querySelector("#current-temperature");
-  temperature = response.data.main.temp;
+  temperature = Math.round(response.data.main.temp);
   let cityElement = document.querySelector("#current-city-details");
   cityElement.innerHTML = response.data.name;
-  temperatureElement.innerHTML = Math.round(temperature);
+  temperatureElement.innerHTML = `${temperature}°`;
 
   let humidityElement = document.querySelector("#humidity-data");
   humidityElement.innerHTML = `${response.data.main.humidity}%`;
@@ -18,19 +18,18 @@ function updateWeather(response) {
 
   let timeElement = document.querySelector("#current-date");
   let timeStamp = response.data.dt;
-  let date = new Date(timeStamp* 1000);
+  let date = new Date(timeStamp * 1000);
   timeElement.innerHTML = formatDate(date);
 
   let iconElement = document.querySelector("#temperature-icon");
   let iconCode = response.data.weather[0].icon;
   let imgElement = document.createElement("img");
   imgElement.src = "https://openweathermap.org/img/wn/" + iconCode + "@2x.png";
-  iconElement.innerHTML = ""; 
+  iconElement.innerHTML = "";
   iconElement.appendChild(imgElement);
 
   let descriptionElement = document.querySelector("#temperature-description");
-  descriptionElement.innerHTML = response.data.weather[0].description;;
-
+  descriptionElement.innerHTML = response.data.weather[0].description;
 }
 
 function searchCity(city) {

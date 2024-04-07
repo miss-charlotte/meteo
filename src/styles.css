@@ -87,6 +87,7 @@ header {
 
 .temperature {
   font-size: 75px;
+  text-align: center;
   /* position: relative; 
   right: 10px; */
 }
@@ -105,8 +106,13 @@ header {
   margin: 0 auto;
 }
 
+.temperature-description {
+  text-align: center;
+}
+
 .temperature-description img{
   margin-top: -20px;
+  
 }
 
 footer {
@@ -121,3 +127,5 @@ footer a {
   text-decoration: none;
   color: rgb(26, 86, 251);
 }
+
+
