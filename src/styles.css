@@ -4,7 +4,11 @@ body {
 }
 
 .weather-app {
-  background: radial-gradient(circle at 10% 20%, rgba(234, 249, 249, 0.67) 0.1%, rgba(9, 213, 240, 0.63) 90.1%);
+  background: radial-gradient(
+    circle at 10% 20%,
+    rgba(234, 249, 249, 0.67) 0.1%,
+    rgba(9, 213, 240, 0.63) 90.1%
+  );
   max-width: 700px;
   margin: 50px auto;
   padding: 30px;
@@ -108,11 +112,35 @@ header {
 
 .temperature-description {
   text-align: center;
+  font-size: 14px;
 }
 
-.temperature-description img{
+.temperature-description img {
   margin-top: -20px;
-  
+}
+
+.weather-forecast {
+  margin-top: 50px;
+  display: flex;
+  justify-content: space-between;
+  /* align-items: center; */
+}
+
+.weather-forecast-date {
+  font-size: 14px;
+  opacity: 0.6;
+}
+
+.weather-forecast-icon img {
+  width: 64px;
+}
+
+.weather-forecast-temperature {
+  font-size: 13px;
+}
+
+.min-temperature {
+  opacity: 0.6;
 }
 
 footer {
@@ -127,5 +155,3 @@ footer a {
   text-decoration: none;
   color: rgb(26, 86, 251);
 }
-
-

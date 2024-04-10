@@ -100,3 +100,35 @@ function formatDate(date) {
 // currentDateELement.innerHTML = formatDate(currentDate);
 
 searchCity("Kampala");
+
+function displayForecast() {
+
+  let days = ["Tue", "Wed", "Thur", "Fri", "Sat", "Sun"];
+  let forecastHtml = "";
+
+  days.forEach(function(day) {
+    forecastHtml = forecastHtml + `
+              <div class="weather-forecast-day">
+                <div class="weather-forecast-date">
+                  ${day}
+                </div>
+                <div class="weather-forecast-icon">
+                  <img src=" https://openweathermap.org/img/wn/10d@2x.png" alt="">
+                </div>                
+                <div class="weather-forecast-temperature">
+                  <span class="max-temperature">18
+                  </span> 
+                  <span class="min-temperature">12</span>
+                </div>                
+              </div>
+            `;
+  });
+
+  let forecastElement = document.querySelector("#weather-forecast");
+  forecastElement.innerHTML = forecastHtml
+};
+
+displayForecast();
+
+
+
