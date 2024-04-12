@@ -1,41 +1,42 @@
 function updateWeather(response) {
   let temperatureElement = document.querySelector("#current-temperature");
-  temperature = Math.round(response.data.main.temp);
+  temperature = Math.round(response.data.temperature.current);
   let cityElement = document.querySelector("#current-city-details");
-  cityElement.innerHTML = response.data.name;
+  cityElement.innerHTML = response.data.city;
   temperatureElement.innerHTML = `${temperature}°`;
 
   let humidityElement = document.querySelector("#humidity-data");
-  humidityElement.innerHTML = `${response.data.main.humidity}%`;
+  humidityElement.innerHTML = `${response.data.temperature.humidity}%`;
 
   let windElement = document.querySelector("#wind-data");
   windElement.innerHTML = `${response.data.wind.speed}km/h`;
 
-  let rainElement = document.querySelector("#rain-data");
-  rainElement.innerHTML = response.data.weather[0].main;
-  console.log(response.data);
-  console.log(response.data.coord.dt);
+  let feelsLikeElement = document.querySelector("#feels-like-data");
+  feelsLikeElement.innerHTML = response.data.temperature.feels_like
 
   let timeElement = document.querySelector("#current-date");
-  let timeStamp = response.data.dt;
+  let timeStamp = response.data.time;
   let date = new Date(timeStamp * 1000);
   timeElement.innerHTML = formatDate(date);
 
   let iconElement = document.querySelector("#temperature-icon");
-  let iconCode = response.data.weather[0].icon;
+  let iconCode = response.data.condition.icon;
   let imgElement = document.createElement("img");
-  imgElement.src = "https://openweathermap.org/img/wn/" + iconCode + "@2x.png";
+  imgElement.src = "http://shecodes-assets.s3.amazonaws.com/api/weather/icons/" + iconCode + ".png";
   iconElement.innerHTML = "";
   iconElement.appendChild(imgElement);
 
   let descriptionElement = document.querySelector("#temperature-description");
-  descriptionElement.innerHTML = response.data.weather[0].description;
+  descriptionElement.innerHTML = response.data.condition.description;
+
+  getForecast(response.data.city);
 }
 
 function searchCity(city) {
-  let apiKey = "e405c2dc39d16dca9ae77f21cfd7e3f7";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  let apiKey = "4a9a03c36co3te6eb309bfc8b0f487fb";
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
   axios.get(apiUrl).then(updateWeather);
+  console.log(apiUrl)
 }
 
 function handleSubmit(event) {
@@ -94,41 +95,55 @@ function formatDate(date) {
   return `${formattedDay}, ${dateDay} ${formattedMonth}, ${year}  - ${hour}:${minutes}`;
 }
 
-// let currentDateELement = document.querySelector("#current-date");
-// let currentDate = new Date();
-
-// currentDateELement.innerHTML = formatDate(currentDate);
-
 searchCity("Kampala");
 
-function displayForecast() {
+function getForecast(city) {
+  let apiKey = "4a9a03c36co3te6eb309bfc8b0f487fb";
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`;
 
-  let days = ["Tue", "Wed", "Thur", "Fri", "Sat", "Sun"];
+  axios(apiUrl).then(displayForecast);
+}
+
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  return days[date.getDay()];
+}
+
+function displayForecast(response) {
   let forecastHtml = "";
 
-  days.forEach(function(day) {
-    forecastHtml = forecastHtml + `
+  response.data.daily.forEach(function (day, index) {
+    if (index < 5) {
+
+      forecastHtml =
+        forecastHtml +
+        `
               <div class="weather-forecast-day">
                 <div class="weather-forecast-date">
-                  ${day}
+                  ${formatDay(day.time)}
                 </div>
-                <div class="weather-forecast-icon">
-                  <img src=" https://openweathermap.org/img/wn/10d@2x.png" alt="">
+                <div>
+                  <img src="${
+                    day.condition.icon_url
+                  }" alt="" class="weather-forecast-icon" >
                 </div>                
                 <div class="weather-forecast-temperature">
-                  <span class="max-temperature">18
+                  <span class="max-temperature">${Math.round(
+                    day.temperature.maximum
+                  )}°
                   </span> 
-                  <span class="min-temperature">12</span>
+                  <span class="min-temperature">${Math.round(
+                    day.temperature.minimum
+                  )}°</span>
                 </div>                
               </div>
             `;
+    }
   });
 
   let forecastElement = document.querySelector("#weather-forecast");
-  forecastElement.innerHTML = forecastHtml
-};
+  forecastElement.innerHTML = forecastHtml;
+}
 
 displayForecast();
-
-
-
